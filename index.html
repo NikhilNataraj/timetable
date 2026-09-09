@@ -4,193 +4,282 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Weekly Schedule</title>
+    <title>Class Schedule & Calendar</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
 <body class="bg-slate-100 min-h-screen p-6 font-sans">
     <div class="max-w-[1400px] mx-auto bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-        <h1 class="text-xl font-bold text-slate-800 mb-4">Class Schedule Matrix</h1>
+        <div class="flex items-center justify-between mb-4">
+            <h1 class="text-xl font-bold text-slate-800">Weekly Schedule</h1>
+            <div class="flex items-center gap-4 text-xs font-semibold">
+                <span class="flex items-center gap-1"><span class="w-3 h-3 bg-yellow-100 border border-yellow-300 rounded"></span> Marketing</span>
+                <span class="flex items-center gap-1"><span class="w-3 h-3 bg-purple-100 border border-purple-300 rounded"></span> Management</span>
+                <span class="flex items-center gap-1"><span class="w-3 h-3 bg-red-50 border border-red-200 rounded"></span> Weekend</span>
+            </div>
+        </div>
 
-        <div class="overflow-x-auto">
+        <div class="overflow-x-auto relative shadow-inner rounded-xl border border-slate-200">
             <table class="w-full border-collapse border-hidden min-w-[1000px]">
                 <thead>
                     <tr>
-                        <th class="p-3 bg-slate-50 border border-slate-200 text-xs font-bold uppercase text-slate-600 text-center w-28">SLOTS</th>
+                        <!-- Sticky SLOTS Header -->
+                        <th class="sticky left-0 z-20 p-3 bg-slate-100 border-r border-b border-slate-200 text-xs font-bold uppercase text-slate-600 text-center w-28 shadow-sm">
+                            SLOTS
+                        </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 11 Sept 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-red-50 text-red-600">
                                 Sat, 12 Sept 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Mon, 14 Sept 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 15 Sept 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 16 Sept 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 17 Sept 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 18 Sept 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 6 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 7 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 8 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 9 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-red-50 text-red-600">
                                 Sat, 10 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Mon, 12 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 13 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 14 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 15 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 16 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 21 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 22 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 27 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 28 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 30 Oct 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Mon, 2 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 3 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 4 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 5 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 6 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Mon, 9 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 10 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 11 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 12 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 13 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-red-50 text-red-600">
                                 Sat, 14 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Mon, 16 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 17 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 18 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 19 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 20 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-red-50 text-red-600">
                                 Sat, 21 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Mon, 23 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Tue, 24 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Wed, 25 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Thu, 26 Nov 2026
                             </th>
                         
-                            <th class="p-3 border border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
                                 Fri, 27 Nov 2026
+                            </th>
+                        
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                                MON
+                            </th>
+                        
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                                TUE
+                            </th>
+                        
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                                WED
+                            </th>
+                        
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                                THU
+                            </th>
+                        
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-slate-50 text-slate-700">
+                                FRI
+                            </th>
+                        
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-red-50 text-red-600">
+                                SAT
+                            </th>
+                        
+                            
+                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 bg-red-50 text-red-600">
+                                SUN
                             </th>
                         
                     </tr>
@@ -198,14 +287,15 @@
                 <tbody>
                     
                         <tr>
-                            <td class="p-3 border border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600">
+                            <!-- Sticky Time Slot Column -->
+                            <td class="sticky left-0 z-10 p-3 border-r border-b border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600 shadow-sm">
                                 08:30–10:00
                             </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -216,10 +306,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -230,10 +320,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -244,10 +334,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -258,10 +348,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -272,26 +362,30 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -302,10 +396,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -316,14 +410,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -334,10 +429,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -348,74 +443,90 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -426,14 +537,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -444,10 +556,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -458,10 +570,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -472,26 +584,30 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -502,10 +618,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -516,10 +632,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -530,10 +646,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -544,10 +660,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -555,28 +671,66 @@
                                                 <span>08:30–10:00</span>
                                             </div>
                                         </div>
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
                         </tr>
                     
                         <tr>
-                            <td class="p-3 border border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600">
+                            <!-- Sticky Time Slot Column -->
+                            <td class="sticky left-0 z-10 p-3 border-r border-b border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600 shadow-sm">
                                 10:20–11:50
                             </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -588,10 +742,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -603,22 +757,25 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -629,10 +786,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -643,10 +800,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -657,14 +814,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -675,10 +833,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -690,10 +848,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -705,10 +863,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -720,10 +878,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -735,10 +893,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -750,10 +908,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -764,14 +922,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -782,10 +941,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -796,10 +955,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -810,10 +969,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -824,10 +983,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -838,10 +997,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -852,14 +1011,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -871,10 +1031,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -885,10 +1045,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -899,10 +1059,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -913,14 +1073,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Financial Modeling using Excel</div>
@@ -931,18 +1092,20 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -954,10 +1117,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -969,10 +1132,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -984,10 +1147,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -999,10 +1162,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1014,10 +1177,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -1028,10 +1191,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -1042,37 +1205,78 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
                         </tr>
                     
                         <tr>
-                            <td class="p-3 border border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600">
+                            <!-- Sticky Time Slot Column -->
+                            <td class="sticky left-0 z-10 p-3 border-r border-b border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600 shadow-sm">
                                 12:10–13:40
                             </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1083,10 +1287,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1097,22 +1301,25 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1123,14 +1330,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1141,22 +1349,25 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -1167,10 +1378,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -1181,14 +1392,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -1199,14 +1411,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1217,10 +1430,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1231,18 +1444,20 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1254,14 +1469,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1273,22 +1489,25 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1299,30 +1518,35 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1333,14 +1557,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1351,22 +1576,25 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1377,18 +1605,20 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">International Business Models for the Circular Economy</div>
@@ -1396,36 +1626,76 @@
                                                 <span>12:10–13:40</span>
                                             </div>
                                         </div>
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
                         </tr>
                     
                         <tr>
-                            <td class="p-3 border border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600">
+                            <!-- Sticky Time Slot Column -->
+                            <td class="sticky left-0 z-10 p-3 border-r border-b border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600 shadow-sm">
                                 14:45–16:15
                             </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1437,10 +1707,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1452,10 +1722,10 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1467,74 +1737,90 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1545,14 +1831,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1564,14 +1851,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1582,22 +1870,25 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1608,50 +1899,60 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1662,41 +1963,83 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
                         </tr>
                     
                         <tr>
-                            <td class="p-3 border border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600">
+                            <!-- Sticky Time Slot Column -->
+                            <td class="sticky left-0 z-10 p-3 border-r border-b border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600 shadow-sm">
                                 16:30–18:00
                             </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1707,38 +2050,45 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1749,14 +2099,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1767,30 +2118,35 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1801,14 +2157,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-purple-100 border-purple-300 text-purple-900
                                             ">
@@ -1820,14 +2177,15 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                         
-                                        <!-- Colored card based on subject hash -->
                                         <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
                                              bg-slate-100 border-slate-300 text-slate-800 ">
                                             <div class="font-bold leading-tight line-clamp-2">Gales of Creative Destruction - Managing Innovation</div>
@@ -1838,75 +2196,128 @@
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
                                     
                                 </td>
                             
-                                <td class="p-2 border border-slate-200 bg-white align-top h-24 relative ">
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-white">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
+                                    
+                                </td>
+                            
+                                
+                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative bg-red-50/20">
                                     
                                 </td>
                             
