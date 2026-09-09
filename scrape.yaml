@@ -1,0 +1,40 @@
+name: Update Timetable
+
+on:
+  schedule:
+    - cron: '0 */6 * * *' # Runs every 6 hours
+  workflow_dispatch: # Allows manual trigger
+
+jobs:
+  scrape-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+
+      - name: Set up Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Install dependencies
+        run: |
+          pip install selenium python-dotenv flask
+
+      - name: Run Scraper
+        env:
+          LOGIN_URL: ${{ secrets.LOGIN_URL }}
+          EMAIL: ${{ secrets.EMAIL }}
+          PASSWORD: ${{ secrets.PASSWORD }}
+        run: python api_2.py
+
+      - name: Build Static HTML
+        run: |
+          python -c 'from app import app; f=open("index.html","w"); f.write(app.test_request_context().open("/").data.decode("utf-8")); f.close()'
+
+      - name: Commit and Push
+        run: |
+          git config --global user.name 'github-actions[bot]'
+          git config --global user.email 'github-actions[bot]@users.noreply.github.com'
+          git add timetable.json index.html
+          git commit -m "Auto-update timetable" || exit 0
+          git push
