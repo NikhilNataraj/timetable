@@ -1,4 +1,6 @@
 import json
+from datetime import datetime, date, timedelta
+from collections import defaultdict
 from flask import Flask, render_template_string
 
 app = Flask(__name__)
@@ -9,100 +11,165 @@ HTML_TEMPLATE = """
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Class Schedule & Calendar</title>
+    <title>Class Calendar</title>
     <script src="https://cdn.tailwindcss.com"></script>
 </head>
-<body class="bg-slate-100 min-h-screen p-6 font-sans">
-    <div class="max-w-[1400px] mx-auto bg-white p-6 rounded-2xl shadow-sm border border-slate-200">
-        <div class="flex items-center justify-between mb-4">
-            <h1 class="text-xl font-bold text-slate-800">Weekly Schedule</h1>
-            <div class="flex items-center gap-4 text-xs font-semibold">
-                <span class="flex items-center gap-1"><span class="w-3 h-3 bg-yellow-100 border border-yellow-300 rounded"></span> Marketing</span>
-                <span class="flex items-center gap-1"><span class="w-3 h-3 bg-purple-100 border border-purple-300 rounded"></span> Management</span>
-                <span class="flex items-center gap-1"><span class="w-3 h-3 bg-red-50 border border-red-200 rounded"></span> Weekend</span>
-            </div>
-        </div>
-
-        <div class="overflow-x-auto relative shadow-inner rounded-xl border border-slate-200">
-            <table class="w-full border-collapse border-hidden min-w-[1000px]">
-                <thead>
-                    <tr>
-                        <!-- Sticky SLOTS Header -->
-                        <th class="sticky left-0 z-20 p-3 bg-slate-100 border-r border-b border-slate-200 text-xs font-bold uppercase text-slate-600 text-center w-28 shadow-sm">
-                            SLOTS
-                        </th>
-                        {% for day in all_days %}
-                            {% set is_weekend = 'SAT' in day.upper() or 'SUN' in day.upper() or 'SATURDAY' in day.upper() or 'SUNDAY' in day.upper() %}
-                            <th class="p-3 border-b border-r border-slate-200 text-xs font-bold uppercase text-center w-40 {% if is_weekend %}bg-red-50 text-red-600{% else %}bg-slate-50 text-slate-700{% endif %}">
-                                {{ day }}
-                            </th>
-                        {% endfor %}
-                    </tr>
-                </thead>
-                <tbody>
-                    {% for slot in slots %}
-                        <tr>
-                            <!-- Sticky Time Slot Column -->
-                            <td class="sticky left-0 z-10 p-3 border-r border-b border-slate-200 bg-slate-50 text-center font-mono text-xs font-semibold text-slate-600 shadow-sm">
-                                {{ slot }}
-                            </td>
-                            {% for day in all_days %}
-                                {% set is_weekend = 'SAT' in day.upper() or 'SUN' in day.upper() or 'SATURDAY' in day.upper() or 'SUNDAY' in day.upper() %}
-                                <td class="p-2 border-r border-b border-slate-200 align-top h-24 relative {% if is_weekend %}bg-red-50/20{% else %}bg-white{% endif %}">
-                                    {% if grid[day] and grid[day][slot] %}
-                                        {% set session = grid[day][slot] %}
-                                        <div class="p-2.5 rounded-lg border text-xs h-full flex flex-col justify-between shadow-xs transition-transform hover:scale-[1.02]
-                                            {% if 'Marketing' in session.subject %} bg-yellow-100 border-yellow-300 text-yellow-900
-                                            {% elif 'Management' in session.subject %} bg-purple-100 border-purple-300 text-purple-900
-                                            {% else %} bg-slate-100 border-slate-300 text-slate-800 {% endif %}">
-                                            <div class="font-bold leading-tight line-clamp-2">{{ session.subject }}</div>
-                                            <div class="mt-2 text-[10px] opacity-75 font-medium flex justify-between">
-                                                <span>{{ session.time }}</span>
-                                            </div>
-                                        </div>
-                                    {% endif %}
-                                </td>
-                            {% endfor %}
-                        </tr>
+<body class="bg-slate-100 min-h-screen p-4 md:p-6 font-sans text-slate-800">
+    <div class="max-w-[1500px] mx-auto">
+        <div class="bg-white rounded-2xl shadow-sm border border-slate-200 p-4 md:p-6">
+            <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
+                <div>
+                    <h1 class="text-2xl font-bold">Class Calendar</h1>
+                    <p class="text-sm text-slate-500 mt-1">1 September 2026 to 30 November 2026</p>
+                </div>
+                <div class="flex flex-wrap gap-2 text-xs font-semibold">
+                    {% for subject, style in subject_styles.items() %}
+                    <span class="flex items-center gap-1.5 px-2 py-1 rounded-full bg-slate-50">
+                        <span class="w-2.5 h-2.5 rounded-full {{ style.dot }}"></span>
+                        {{ subject }}
+                    </span>
                     {% endfor %}
-                </tbody>
-            </table>
+                </div>
+            </div>
+
+            {% for month in months %}
+            <section class="mb-8 last:mb-0">
+                <div class="flex items-center justify-between mb-3">
+                    <h2 class="text-lg font-bold">{{ month.title }}</h2>
+                    <span class="text-xs text-slate-400">{{ month.class_count }} classes</span>
+                </div>
+
+                <div class="overflow-x-auto rounded-xl border border-slate-200">
+                    <div class="min-w-[980px]">
+                        <div class="grid grid-cols-7 bg-slate-50 border-b border-slate-200">
+                            {% for day_name in ["Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"] %}
+                            <div class="px-3 py-2 text-xs font-bold uppercase text-center {% if day_name == 'Sunday' %}text-red-600 bg-red-50{% else %}text-slate-500{% endif %}">
+                                {{ day_name }}
+                            </div>
+                            {% endfor %}
+                        </div>
+
+                        <div class="grid grid-cols-7 auto-rows-fr">
+                            {% for cell in month.cells %}
+                            <div class="min-h-[150px] border-r border-b border-slate-200 p-2 {% if cell.is_sunday %}bg-red-50/60{% else %}bg-white{% endif %} {% if not cell.in_range %}bg-slate-50 text-slate-300{% endif %}">
+                                <div class="flex items-center justify-between mb-2">
+                                    <span class="text-sm font-bold {% if cell.is_sunday and cell.in_range %}text-red-600{% elif not cell.in_range %}text-slate-300{% else %}text-slate-700{% endif %}">
+                                        {{ cell.day_number }}
+                                    </span>
+                                    {% if cell.is_sunday and cell.in_range %}
+                                    <span class="text-[9px] font-bold uppercase tracking-wide text-red-500 bg-red-100 px-1.5 py-0.5 rounded">Sunday</span>
+                                    {% endif %}
+                                </div>
+
+                                <div class="space-y-1.5">
+                                    {% for session in cell.sessions %}
+                                    <div class="rounded-lg border p-2 {{ session.style.bg }} {{ session.style.border }} {{ session.style.text }}">
+                                        <div class="text-[10px] font-semibold opacity-70 mb-0.5">{{ session.time }}</div>
+                                        <div class="text-xs font-bold leading-tight">{{ session.subject }}</div>
+                                    </div>
+                                    {% endfor %}
+                                </div>
+                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </section>
+            {% endfor %}
         </div>
     </div>
 </body>
 </html>
 """
 
+SUBJECT_STYLES = {
+    "Financial Modeling using Excel": {"bg": "bg-blue-50", "border": "border-blue-200", "text": "text-blue-900", "dot": "bg-blue-500"},
+    "Sales and Distribution Management": {"bg": "bg-purple-50", "border": "border-purple-200", "text": "text-purple-900", "dot": "bg-purple-500"},
+    "Gales of Creative Destruction - Managing Innovation": {"bg": "bg-yellow-50", "border": "border-yellow-200", "text": "text-yellow-900", "dot": "bg-yellow-500"},
+    "International Business Models for the Circular Economy": {"bg": "bg-green-50", "border": "border-green-200", "text": "text-green-900", "dot": "bg-green-500"}
+}
+DEFAULT_STYLE = {"bg": "bg-slate-50", "border": "border-slate-200", "text": "text-slate-800", "dot": "bg-slate-500"}
+
+def parse_day(value):
+    value = value.replace("Sept", "Sep")
+    return datetime.strptime(value, "%a, %d %b %Y").date()
+
+
+def month_start(d):
+    return d.replace(day=1)
+
+def next_month(d):
+    return d.replace(year=d.year + (1 if d.month == 12 else 0), month=1 if d.month == 12 else d.month + 1, day=1)
+
+def build_month_cells(year, month, sessions_by_date, start_date, end_date):
+    first = date(year, month, 1)
+    next_first = next_month(first)
+    days_in_month = (next_first - first).days
+    leading_blank_days = first.weekday()
+    total_cells = ((leading_blank_days + days_in_month + 6) // 7) * 7
+    cells = []
+
+    for i in range(total_cells):
+        day_offset = i - leading_blank_days
+        cell_date = first + timedelta(days=day_offset)
+        in_month = 0 <= day_offset < days_in_month
+        in_range = start_date <= cell_date <= end_date
+        sessions = []
+
+        if in_month and in_range:
+            for item in sessions_by_date.get(cell_date, []):
+                sessions.append({
+                    "time": item["time"],
+                    "subject": item["subject"],
+                    "style": SUBJECT_STYLES.get(item["subject"], DEFAULT_STYLE)
+                })
+
+        cells.append({
+            "day_number": cell_date.day,
+            "is_sunday": cell_date.weekday() == 6,
+            "in_range": in_range and in_month,
+            "sessions": sessions
+        })
+    return cells
 
 @app.route("/")
 def index():
     try:
-        with open("timetable.json", "r") as f:
+        with open("timetable.json", "r", encoding="utf-8") as f:
             items = json.load(f)
     except FileNotFoundError:
         items = []
 
-    # Standard full week structure
-    default_days = ["MON", "TUE", "WED", "THU", "FRI", "SAT", "SUN"]
-
-    # Collect all unique days from scraper while keeping full week order
-    scraped_days = list(dict.fromkeys([item["day"] for item in items]))
-    all_days = list(dict.fromkeys(scraped_days + default_days))
-
-    # Extract unique time slots
-    slots = list(dict.fromkeys([item["time"] for item in items]))
-    if not slots:
-        slots = ["08:30 to 10:00 AM", "10:20 to 11:50 AM", "12:10 to 01:40 PM", "02:45 to 04:15 PM",
-                 "04:30 to 06:00 PM"]
-
-    # Build matrix grid[day][slot]
-    grid = {day: {slot: None for slot in slots} for day in all_days}
+    sessions_by_date = defaultdict(list)
     for item in items:
-        if item["day"] in grid and item["time"] in grid[item["day"]]:
-            grid[item["day"]][item["time"]] = item
+        try:
+            sessions_by_date[parse_day(item["day"])].append(item)
+        except (KeyError, ValueError):
+            continue
 
-    return render_template_string(HTML_TEMPLATE, all_days=all_days, slots=slots, grid=grid)
+    if sessions_by_date:
+        earliest = min(sessions_by_date)
+        latest = max(sessions_by_date)
+        start_date = min(month_start(earliest), date(2026, 9, 1))
+        end_date = max(next_month(month_start(latest)) - timedelta(days=1), date(2026, 11, 30))
+    else:
+        start_date, end_date = date(2026, 9, 1), date(2026, 11, 30)
 
+    for sessions in sessions_by_date.values():
+        sessions.sort(key=lambda x: x.get("time", ""))
+
+    months = []
+    cursor = start_date
+    while cursor <= end_date:
+        cells = build_month_cells(cursor.year, cursor.month, sessions_by_date, start_date, end_date)
+        months.append({
+            "title": cursor.strftime("%B %Y"),
+            "cells": cells,
+            "class_count": sum(len(c["sessions"]) for c in cells)
+        })
+        cursor = next_month(cursor)
+
+    return render_template_string(HTML_TEMPLATE, months=months, subject_styles=SUBJECT_STYLES)
 
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5000, debug=True)
