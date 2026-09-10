@@ -25,7 +25,7 @@ jobs:
           LOGIN_URL: ${{ secrets.LOGIN_URL }}
           EMAIL: ${{ secrets.EMAIL }}
           PASSWORD: ${{ secrets.PASSWORD }}
-        run: python api_2.py
+        run: python api.py
 
       - name: Build Static HTML
         run: |
