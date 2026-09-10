@@ -31,10 +31,14 @@ jobs:
         run: |
           python -c 'from app import app; client = app.test_client(); response = client.get("/"); open("index.html", "w", encoding="utf-8").write(response.data.decode("utf-8"))'
 
-      - name: Commit and Push
+      - name: Commit and Push Updated Data
         run: |
           git config --global user.name 'github-actions[bot]'
           git config --global user.email 'github-actions[bot]@users.noreply.github.com'
           git add timetable.json index.html
-          git commit -m "Auto-update timetable" || exit 0
-          git push
+          if git diff --staged --quiet; then
+            echo "No changes detected in timetable data."
+          else
+            git commit -m "Auto-update timetable data"
+            git push
+          fi
