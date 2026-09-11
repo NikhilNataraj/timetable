@@ -73,6 +73,8 @@ def parse_timetable(timetable_elements):
     """
     scraped_data = []
     try:
+        # Context: Inside parse_timetable(timetable_elements), replacing lines 71-98
+
         for div in timetable_elements:
             day = div.find_element(
                 By.CSS_SELECTOR, ".text-sm.font-semibold.text-surface-900"
@@ -84,15 +86,25 @@ def parse_timetable(timetable_elements):
             subjects_list = div.find_elements(
                 By.CSS_SELECTOR, ".block.text-sm.font-medium.truncate"
             )
+            places_list = div.find_elements(
+                By.CSS_SELECTOR, "span.text-surface-400"
+            )
 
-            for timing_elem, subject_elem in zip(timings_list, subjects_list):
+            for timing_elem, subject_elem, place_elem in zip(timings_list, subjects_list, places_list):
+                place_raw = place_elem.get_attribute("textContent").strip()
+                # Strips out parentheses around "LCR-01"
+                place_clean = place_raw.replace("(", "").replace(")", "").strip()
+
                 scraped_data.append({
                     "day": day,
                     "time": timing_elem.get_attribute("textContent").strip(),
-                    "subject": subject_elem.get_attribute("textContent").strip()
+                    "subject": subject_elem.get_attribute("textContent").strip(),
+                    "place": place_clean
                 })
 
         with open("timetable.json", "w") as f:
             json.dump(scraped_data, f, indent=2)
     except Exception as e:
         return e
+
+get_time_table()
