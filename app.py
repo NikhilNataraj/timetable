@@ -1,6 +1,6 @@
-import json
-from datetime import datetime, date, timedelta
 from collections import defaultdict
+from datetime import date, datetime, timedelta
+import json
 from flask import Flask, render_template_string
 
 app = Flask(__name__)
@@ -50,7 +50,7 @@ HTML_TEMPLATE = """
                     <span class="text-xs text-slate-400">{{ month.class_count }} classes</span>
                 </div>
 
-                <!-- Desktop View (Original Grid Layout) -->
+                <!-- Desktop View -->
                 <div class="hidden md:block overflow-x-auto rounded-xl border border-slate-200">
                     <div class="min-w-[980px]">
                         <div class="grid grid-cols-7 bg-slate-50 border-b border-slate-200">
@@ -85,7 +85,12 @@ HTML_TEMPLATE = """
                                 <div class="space-y-1.5">
                                     {% for session in cell.sessions %}
                                     <div class="rounded-lg border p-2 {{ session.style.bg }} {{ session.style.border }} {{ session.style.text }}">
-                                        <div class="text-[10px] font-semibold opacity-70 mb-0.5">{{ session.time }}</div>
+                                        <div class="flex items-center justify-between text-[10px] font-semibold opacity-70 mb-0.5">
+                                            <span>{{ session.time }}</span>
+                                            {% if session.place %}
+                                            <span class="font-bold opacity-90">{{ session.place }}</span>
+                                            {% endif %}
+                                        </div>
                                         <div class="text-xs font-bold leading-tight">{{ session.subject }}</div>
                                     </div>
                                     {% endfor %}
@@ -96,7 +101,7 @@ HTML_TEMPLATE = """
                     </div>
                 </div>
 
-                <!-- Mobile View: Week-by-Week Horizontal Scroll -->
+                <!-- Mobile View -->
                 <div class="md:hidden space-y-4">
                     {% for week_obj in month.weeks %}
                     <div {% if week_obj.is_current %}id="current-week"{% endif %} class="bg-slate-50/70 border {% if week_obj.is_current %}border-blue-400 ring-2 ring-blue-100{% else %}border-slate-200{% endif %} rounded-xl p-3">
@@ -107,7 +112,7 @@ HTML_TEMPLATE = """
                         </div>
                         <div class="flex gap-2.5 overflow-x-auto no-scrollbar pb-1 snap-x">
                             {% for cell in week_obj.cells %}
-                            <div class="min-w-[130px] w-[130px] flex-shrink-0 snap-start rounded-lg border p-2.5 flex flex-col justify-between 
+                            <div {% if cell.is_today %}data-today="true"{% endif %} class="min-w-[130px] w-[130px] flex-shrink-0 snap-start rounded-lg border p-2.5 flex flex-col justify-between 
                                 {% if cell.is_today %}bg-amber-50/95 border-amber-400 ring-2 ring-amber-200
                                 {% elif cell.is_sunday %}bg-red-50/80 border-red-200
                                 {% else %}bg-white border-slate-200{% endif %} 
@@ -126,7 +131,12 @@ HTML_TEMPLATE = """
                                         {% if cell.sessions %}
                                             {% for session in cell.sessions %}
                                             <div class="rounded border p-1.5 {{ session.style.bg }} {{ session.style.border }} {{ session.style.text }}">
-                                                <div class="text-[9px] font-semibold opacity-70 leading-none mb-1">{{ session.time }}</div>
+                                                <div class="flex items-center justify-between text-[9px] font-semibold opacity-70 leading-none mb-1">
+                                                    <span>{{ session.time }}</span>
+                                                    {% if session.place %}
+                                                    <span class="font-bold opacity-90">{{ session.place }}</span>
+                                                    {% endif %}
+                                                </div>
                                                 <div class="text-[11px] font-bold leading-tight line-clamp-3">{{ session.subject }}</div>
                                             </div>
                                             {% endfor %}
@@ -148,13 +158,21 @@ HTML_TEMPLATE = """
     </div>
 
     <script>
-        // Automatically scroll to the current week on mobile view when page loads
         document.addEventListener("DOMContentLoaded", function() {
-            const currentWeekEl = document.getElementById("current-week");
-            if (currentWeekEl && window.innerWidth < 768) {
-                setTimeout(() => {
+            if (window.innerWidth < 768) {
+                // 1. Scroll page vertically to the current week
+                const currentWeekEl = document.getElementById("current-week");
+                if (currentWeekEl) {
                     currentWeekEl.scrollIntoView({ behavior: "smooth", block: "start" });
-                }, 100);
+                }
+
+                // 2. Scroll horizontal container so "Today" is at the left edge
+                const todayEl = document.querySelector("#current-week [data-today='true']");
+                if (todayEl) {
+                    setTimeout(() => {
+                        todayEl.scrollIntoView({ behavior: "smooth", inline: "start", block: "nearest" });
+                    }, 150);
+                }
             }
         });
     </script>
@@ -163,16 +181,37 @@ HTML_TEMPLATE = """
 """
 
 SUBJECT_STYLES = {
-    "Financial Modeling using Excel": {"bg": "bg-blue-50", "border": "border-blue-200", "text": "text-blue-900",
-                                       "dot": "bg-blue-500"},
-    "Sales and Distribution Management": {"bg": "bg-purple-50", "border": "border-purple-200",
-                                          "text": "text-purple-900", "dot": "bg-purple-500"},
-    "Gales of Creative Destruction - Managing Innovation": {"bg": "bg-yellow-50", "border": "border-yellow-200",
-                                                            "text": "text-yellow-900", "dot": "bg-yellow-500"},
-    "International Business Models for the Circular Economy": {"bg": "bg-green-50", "border": "border-green-200",
-                                                               "text": "text-green-900", "dot": "bg-green-500"}
+    "Financial Modeling using Excel": {
+        "bg": "bg-blue-50",
+        "border": "border-blue-200",
+        "text": "text-blue-900",
+        "dot": "bg-blue-500",
+    },
+    "Sales and Distribution Management": {
+        "bg": "bg-purple-50",
+        "border": "border-purple-200",
+        "text": "text-purple-900",
+        "dot": "bg-purple-500",
+    },
+    "Gales of Creative Destruction - Managing Innovation": {
+        "bg": "bg-yellow-50",
+        "border": "border-yellow-200",
+        "text": "text-yellow-900",
+        "dot": "bg-yellow-500",
+    },
+    "International Business Models for the Circular Economy": {
+        "bg": "bg-green-50",
+        "border": "border-green-200",
+        "text": "text-green-900",
+        "dot": "bg-green-500",
+    },
 }
-DEFAULT_STYLE = {"bg": "bg-slate-50", "border": "border-slate-200", "text": "text-slate-800", "dot": "bg-slate-500"}
+DEFAULT_STYLE = {
+    "bg": "bg-slate-50",
+    "border": "border-slate-200",
+    "text": "text-slate-800",
+    "dot": "bg-slate-500",
+}
 
 
 def parse_day(value):
@@ -185,10 +224,16 @@ def month_start(d):
 
 
 def next_month(d):
-    return d.replace(year=d.year + (1 if d.month == 12 else 0), month=1 if d.month == 12 else d.month + 1, day=1)
+    return d.replace(
+        year=d.year + (1 if d.month == 12 else 0),
+        month=1 if d.month == 12 else d.month + 1,
+        day=1,
+    )
 
 
-def build_month_cells(year, month, sessions_by_date, start_date, end_date, today):
+def build_month_cells(
+    year, month, sessions_by_date, start_date, end_date, today
+):
     first = date(year, month, 1)
     next_first = next_month(first)
     days_in_month = (next_first - first).days
@@ -208,7 +253,8 @@ def build_month_cells(year, month, sessions_by_date, start_date, end_date, today
                 sessions.append({
                     "time": item["time"],
                     "subject": item["subject"],
-                    "style": SUBJECT_STYLES.get(item["subject"], DEFAULT_STYLE)
+                    "place": item.get("place", ""),
+                    "style": SUBJECT_STYLES.get(item["subject"], DEFAULT_STYLE),
                 })
 
         cells.append({
@@ -218,7 +264,7 @@ def build_month_cells(year, month, sessions_by_date, start_date, end_date, today
             "is_sunday": cell_date.weekday() == 6,
             "is_today": cell_date == today,
             "in_range": in_range and in_month,
-            "sessions": sessions
+            "sessions": sessions,
         })
     return cells
 
@@ -243,9 +289,11 @@ def index():
     if sessions_by_date:
         earliest = min(sessions_by_date)
         latest = max(sessions_by_date)
-        # Ensure start and end dates automatically expand to include today's date if necessary
         start_date = min(month_start(earliest), month_start(today))
-        end_date = max(next_month(month_start(latest)) - timedelta(days=1), next_month(month_start(today)) - timedelta(days=1))
+        end_date = max(
+            next_month(month_start(latest)) - timedelta(days=1),
+            next_month(month_start(today)) - timedelta(days=1),
+        )
     else:
         start_date = month_start(today)
         end_date = next_month(month_start(today)) - timedelta(days=1)
@@ -256,33 +304,37 @@ def index():
     months = []
     cursor = start_date
     while cursor <= end_date:
-        cells = build_month_cells(cursor.year, cursor.month, sessions_by_date, start_date, end_date, today)
-
-        # Group cells into chunks of 7 for the week-by-week mobile layout & check for current week
-        raw_weeks = [cells[i:i + 7] for i in range(0, len(cells), 7)]
+        cells = build_month_cells(
+            cursor.year,
+            cursor.month,
+            sessions_by_date,
+            start_date,
+            end_date,
+            today,
+        )
+        raw_weeks = [cells[i : i + 7] for i in range(0, len(cells), 7)]
         weeks = []
         for w in raw_weeks:
             is_current = any(c["date"] == today for c in w)
-            weeks.append({
-                "cells": w,
-                "is_current": is_current
-            })
+            weeks.append({"cells": w, "is_current": is_current})
 
         months.append({
             "title": cursor.strftime("%B %Y"),
             "cells": cells,
             "weeks": weeks,
-            "class_count": sum(len(c["sessions"]) for c in cells)
+            "class_count": sum(len(c["sessions"]) for c in cells),
         })
         cursor = next_month(cursor)
 
-    subtitle_range = f"{start_date.strftime('%d %B %Y')} to {end_date.strftime('%d %B %Y')}"
+    subtitle_range = (
+        f"{start_date.strftime('%d %B %Y')} to {end_date.strftime('%d %B %Y')}"
+    )
 
     return render_template_string(
         HTML_TEMPLATE,
         months=months,
         subject_styles=SUBJECT_STYLES,
-        subtitle_range=subtitle_range
+        subtitle_range=subtitle_range,
     )
 
 

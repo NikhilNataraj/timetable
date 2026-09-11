@@ -106,5 +106,3 @@ def parse_timetable(timetable_elements):
             json.dump(scraped_data, f, indent=2)
     except Exception as e:
         return e
-
-get_time_table()
