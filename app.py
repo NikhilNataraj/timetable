@@ -31,7 +31,7 @@ HTML_TEMPLATE = """
             <div class="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-4 mb-6">
                 <div>
                     <h1 class="text-2xl font-bold">Class Calendar</h1>
-                    <p class="text-sm text-slate-500 mt-1">1 September 2026 to 30 November 2026</p>
+                    <p class="text-sm text-slate-500 mt-1">{{ subtitle_range }}</p>
                 </div>
                 <div class="flex flex-wrap gap-2 text-xs font-semibold">
                     {% for subject, style in subject_styles.items() %}
@@ -238,18 +238,20 @@ def index():
         except (KeyError, ValueError):
             continue
 
+    today = date.today()
+
     if sessions_by_date:
         earliest = min(sessions_by_date)
         latest = max(sessions_by_date)
-        start_date = min(month_start(earliest), date(2026, 9, 1))
-        end_date = max(next_month(month_start(latest)) - timedelta(days=1), date(2026, 11, 30))
+        # Ensure start and end dates automatically expand to include today's date if necessary
+        start_date = min(month_start(earliest), month_start(today))
+        end_date = max(next_month(month_start(latest)) - timedelta(days=1), next_month(month_start(today)) - timedelta(days=1))
     else:
-        start_date, end_date = date(2026, 9, 1), date(2026, 11, 30)
+        start_date = month_start(today)
+        end_date = next_month(month_start(today)) - timedelta(days=1)
 
     for sessions in sessions_by_date.values():
         sessions.sort(key=lambda x: x.get("time", ""))
-
-    today = date.today()
 
     months = []
     cursor = start_date
@@ -274,7 +276,14 @@ def index():
         })
         cursor = next_month(cursor)
 
-    return render_template_string(HTML_TEMPLATE, months=months, subject_styles=SUBJECT_STYLES)
+    subtitle_range = f"{start_date.strftime('%d %B %Y')} to {end_date.strftime('%d %B %Y')}"
+
+    return render_template_string(
+        HTML_TEMPLATE,
+        months=months,
+        subject_styles=SUBJECT_STYLES,
+        subtitle_range=subtitle_range
+    )
 
 
 if __name__ == "__main__":
